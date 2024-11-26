@@ -2,17 +2,20 @@
 # Feel free to reuse, edit and redistribute this workflow as you wish, no credits needed
 # See https://github.com/lowlighter/metrics for documentation about how to use metrics action
 
-name: Metrics GMX
+name: Metrics
 on:
   # Schedule daily updates
   schedule: [{cron: "0 0 * * *"}]
   # (optional) Run workflow manually
   workflow_dispatch:
+  push: {branches: ["master", "main"]}
 jobs:
-  metrics:
+  github-metrics:
     runs-on: ubuntu-latest
     environment: 
       name: production
+    permissions:
+      contents: write
     steps:
       - name: General
         if: ${{ success() || failure() }}
