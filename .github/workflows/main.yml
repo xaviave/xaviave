@@ -11,6 +11,8 @@ on:
 jobs:
   metrics:
     runs-on: ubuntu-latest
+    environment: 
+      name: production
     steps:
       - name: General
         if: ${{ success() || failure() }}
