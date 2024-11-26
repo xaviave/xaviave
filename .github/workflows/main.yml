@@ -16,7 +16,7 @@ jobs:
         if: ${{ success() || failure() }}
         uses: lowlighter/metrics@latest
         with:
-          token: ${{ env_tokens.METRICS_TOKEN }}
+          token: ${{ secrets.METRICS_TOKEN }}
           base: header
           base_indepth: yes
           config_order: base.header, isocalendar, languages
